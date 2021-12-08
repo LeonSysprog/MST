@@ -30,30 +30,6 @@ struct RelatedNode {
     }
 };
 
-// for priority queue
-struct Comparator {
-    bool operator() (pair<int, string> a, pair<int, string> b) {
-        return a.first > b.first;
-    }
-};
-
-// for dijkstra
-class MinHeap : public priority_queue<pair<int, string>, vector<pair<int, string>>, Comparator> {
-    public:
-        typedef typename priority_queue<pair<int, string>, vector<pair<int, string>>, Comparator>::container_type::iterator iterator;
-        iterator find(string val) {
-            auto first = this->c.begin();
-            auto last = this->c.end();
-            while (first != last) {
-                if (first->second == val)
-                    return first;
-                ++first;
-            }
-
-            return last;
-        }
-};
-
 // AdjacencyList with weight
 // 1 - weight flag(if not than without brackets)
 // 1 - orient flag(if not than dup)
